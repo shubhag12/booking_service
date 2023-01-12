@@ -9,10 +9,10 @@ class BookingService {
     try {
       const flightId = data.flightId;
       let getFlightRequestUrl=`${FLIGHT_SERVICE_PATH}/api/v1/flights/${flightId}`
-      console.log(getFlightRequestUrl);
+     
       const flight=await axios.get(getFlightRequestUrl);
-      console.log("from booking service",flight.data);
-      return flight.data;
+      
+      return flight.data.data;
     } catch (error) {
       console.log("service");
       throw { error };
